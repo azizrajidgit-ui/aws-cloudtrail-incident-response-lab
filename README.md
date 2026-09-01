@@ -1,3 +1,8 @@
+![AWS](https://img.shields.io/badge/AWS-CloudTrail-orange)
+![AWS](https://img.shields.io/badge/AWS-Athena-orange)
+![Domain](https://img.shields.io/badge/Domain-Security_Investigation-red)
+![Focus](https://img.shields.io/badge/Focus-Incident_Response-purple)
+
 # AWS Security Incident Investigation with CloudTrail & Athena
 
 Investigated and remediated a simulated breach of an EC2-hosted web server. Enabled CloudTrail auditing, traced the attacker through three log-analysis methods, identified the compromised IAM identity, and remediated at the OS, network, and IAM levels.
