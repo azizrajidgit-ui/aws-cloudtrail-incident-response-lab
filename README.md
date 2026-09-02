@@ -24,6 +24,7 @@ Before the incident, the web application was running normally and the security g
 *Web server in its expected state before the compromise.*
 
 ![Security group baseline](screenshots/03-sg-baseline.png)
+
 *Baseline security group configuration with only approved inbound rules.*
 
 ## 2. Enable Auditing with CloudTrail
@@ -31,9 +32,11 @@ Before the incident, the web application was running normally and the security g
 With no existing audit trail, the first step was to configure a multi-region CloudTrail trail delivering logs to S3 for centralized record keeping.
 
 ![Creating the CloudTrail trail](screenshots/02-creating-trail.png)
+
 *Creating a new CloudTrail trail.*
 
 ![CloudTrail trail active](screenshots/04-cloud-dtrail-trail.png)
+
 *Confirmed trail collecting management events for the account.*
 
 ## 3. Detect the Compromise
@@ -41,9 +44,11 @@ With no existing audit trail, the first step was to configure a multi-region Clo
 The web server was found defaced, and inspection of its security group revealed a rogue inbound rule permitting SSH (port 22) from anywhere on the internet.
 
 ![Defaced website](screenshots/05-defaced-website.png)
+
 *Website after unauthorized modification.*
 
 ![Unauthorized security group rule](screenshots/06-unauthorized-sg-rule.png)
+
 *Rogue inbound rule: SSH on port 22 open to 0.0.0.0/0.*
 
 ## 4. Investigate the Incident
@@ -55,9 +60,11 @@ Three independent methods were used to correlate the change to a specific actor,
 CloudTrail logs (.json.gz) were downloaded from S3 and parsed with scripted grep loops, filtering entries by `sourceIPAddress` and `eventName`.
 
 ![Downloading CloudTrail logs from S3](screenshots/08-log-download.png)
+
 *Downloading CloudTrail log archives for offline analysis.*
 
 ![grep analysis results](screenshots/07-grep-analysis.png)
+
 *Filtering CloudTrail entries by event and source IP.*
 
 ### Method 2: AWS CLI
@@ -70,6 +77,7 @@ aws cloudtrail lookup-events \
 ```
 
 ![CLI lookup output](screenshots/09-cli-lookup-events.png)
+
 *CloudTrail lookup-events filtered by security group.*
 
 ### Method 3: Amazon Athena (SQL)
@@ -83,6 +91,7 @@ WHERE eventname = 'AuthorizeSecurityGroupIngress';
 ```
 
 ![Athena query results](screenshots/10-athena-smoking-gun.png)
+
 *Athena pinpointing the identity, timestamp, and source IP behind the change.*
 
 ## 5. Remediate
@@ -90,9 +99,11 @@ WHERE eventname = 'AuthorizeSecurityGroupIngress';
 Findings were addressed at the operating-system, network, and IAM levels.
 
 ![OS-level remediation](screenshots/11-os-remediation.png)
+
 *Hardening the host and removing attacker access.*
 
 ![Website restored](screenshots/12-website-restored.png)
+
 *Service verified back to normal operation.*
 
 ## Supporting Evidence
