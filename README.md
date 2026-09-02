@@ -20,6 +20,7 @@ A cafe's public web server was defaced after an unauthorized SSH rule (port 22, 
 Before the incident, the web application was running normally and the security group contained only expected inbound rules.
 
 ![Normal website prior to the incident](screenshots/01-normal-website.png)
+
 *Web server in its expected state before the compromise.*
 
 ![Security group baseline](screenshots/03-sg-baseline.png)
