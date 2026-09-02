@@ -43,7 +43,6 @@ With no existing audit trail, the first step was to configure a multi-region Clo
 
 The web server was found defaced, and inspection of its security group revealed a rogue inbound rule permitting SSH (port 22) from anywhere on the internet.
 
-![Defaced website](screenshots/05-defaced-website.png)
 ![Defaced website Preview](screenshots/0.5-defaced-website.png)
 *Website after unauthorized modification.*
 
