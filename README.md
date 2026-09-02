@@ -19,7 +19,7 @@ A café's public web server was defaced after an unauthorized SSH rule (port 22,
 
 **Detection** — Website found defaced; a rogue inbound rule (SSH, 0.0.0.0/0) was found on the instance's security group.
 
-![Defaced website](screenshots/05-defaced-website.png)
+![Website](screenshots/05-defaced-website.png)
 ![Unauthorized rule](screenshots/06-unauthorized-sg-rule.png)
 
 **Method 1: grep** — Downloaded CloudTrail .json.gz logs from S3 and filtered entries by `sourceIPAddress` and `eventName` using scripted grep loops.
