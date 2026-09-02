@@ -99,5 +99,10 @@ Findings were addressed at the operating-system, network, and IAM levels.
 Additional screenshots documenting intermediate steps of the investigation.
 
 ![Supplementary evidence 1](screenshots/13-extra-1.png)
+
+
 ![Supplementary evidence 2](screenshots/14-extra-2.png)
+
+
 ![Supplementary evidence 3](screenshots/15-extra-3.png)
+
